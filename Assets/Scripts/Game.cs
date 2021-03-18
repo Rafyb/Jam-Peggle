@@ -11,7 +11,7 @@ public class Game : MonoBehaviour
 	public GameObject ballPrefabB;
 	public GameObject ballPrefabW;
 	public GameObject trampolino;
-	public Canvas MyCanvas;
+	public GameObject bras;
 	GameObject ballPlayer;
 	Rigidbody2D theRb;
 
@@ -23,6 +23,7 @@ public class Game : MonoBehaviour
 	Vector3 mousePosition;
 	Vector3 direction;
 	Vector3 trampoDir;
+
 
 	public int nbBall = 5;
 	private List<GameObject> balls = new List<GameObject>();
@@ -95,11 +96,11 @@ public class Game : MonoBehaviour
 		if(p.Raycast(r, out distance))
 		{
 			//Debug.Log(r.GetPoint(distance));
-			Vector3 position = r.GetPoint(distance);
+			mousePosition = r.GetPoint(distance);
 			if (Input.GetMouseButtonDown(0) && theRb.isKinematic == true)
 			{
 				scoreBoard.ActiveBras(false);
-				direction = position - transform.position;
+				direction = mousePosition - transform.position;
 				theRb.isKinematic = false;
 				theRb.AddForce((direction.normalized * force), ForceMode2D.Impulse);
 				//Debug.Log(direction);
@@ -107,6 +108,8 @@ public class Game : MonoBehaviour
 		}
 
 		Trampoline();
+
+		//bras.transform.Rotate(new Vector3(0,0,Mathf.Atan2(mousePosition.y, mousePosition.x)));
 	}
 
     void OnDestroyBrick(TypeBrick type, EffectBrick effect)
