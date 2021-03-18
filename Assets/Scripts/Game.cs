@@ -17,6 +17,8 @@ public class Game : MonoBehaviour
 
 	public float force;
 	public float trampoSpeed;
+	[Range(0,6)]
+	public float trampoRange;
 
 	Vector3 mousePosition;
 	Vector3 direction;
@@ -71,10 +73,6 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		/*var mousePos = Input.mousePosition;
-		mousePos.z = Camera.main.transform.position.z;
-		mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, -mousePos.y, mousePos.z));*/
-
 		Plane p = new Plane(new Vector3(0, 0, 1), Vector3.zero);
 		Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
 		float distance;
@@ -126,7 +124,7 @@ public class Game : MonoBehaviour
 	public void Trampoline()
 	{
 		trampolino.transform.position += trampoDir * trampoSpeed * Time.deltaTime;
-		if (trampolino.transform.position.x < -5.5f || trampolino.transform.position.x > 5.5f)
+		if (trampolino.transform.position.x < -trampoRange || trampolino.transform.position.x > trampoRange)
 		{
 			trampoDir = -trampoDir;
 		}
