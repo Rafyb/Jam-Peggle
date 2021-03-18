@@ -6,9 +6,10 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
 	public Action<EffectBrick> onDestroyBrick;
+    public Action onDestroyBall;
 
-	// Start is called before the first frame update
-	void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         
     }
@@ -17,6 +18,11 @@ public class Ball : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 
 }
