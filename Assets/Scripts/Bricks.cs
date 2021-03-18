@@ -13,7 +13,7 @@ public enum EffectBrick
     None, Bonus
 }
 
-
+[SelectionBase]
 public class Bricks : MonoBehaviour
 {
     public TypeBrick type;
