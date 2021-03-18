@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
@@ -117,8 +118,15 @@ public class Game : MonoBehaviour
 
 	public void Fini(bool win)
     {
-		if(win) 
-    }
+		if (win)
+		{
+			if(SceneManager.GetActiveScene().buildIndex == 6) SceneManager.LoadScene(0);
+			else SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+		}
+		else SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+	}
 
 	void OnDestroyBall()
 	{
