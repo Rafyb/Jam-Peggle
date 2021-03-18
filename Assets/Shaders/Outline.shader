@@ -134,7 +134,11 @@
 
 				float edge = max(edgeDepth, edgeNormal);
 
-				return edge;
+				float4 edgeColor = float4(_Color.rgb, _Color.a * edge);
+
+				float4 color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord);
+
+				return alphaBlend(edgeColor, color);
 			}
             ENDHLSL
         }
