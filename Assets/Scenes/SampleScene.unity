@@ -547,13 +547,13 @@ PrefabInstance:
         type: 3}
       propertyPath: brickPrefabBlack
       value: 
-      objectReference: {fileID: 7530546675884094794, guid: f0de486a690c8fc4696c4637978ab057,
+      objectReference: {fileID: 979477016989968597, guid: 5d01985ae116ab94f86667b8204390a3,
         type: 3}
     - target: {fileID: 7833850870611872093, guid: 2ecdde3b1cf4ee544afc37219d7ea795,
         type: 3}
       propertyPath: brickPrefabWhite
       value: 
-      objectReference: {fileID: 7530546675884094794, guid: 302115010eaf66449ad7dd3cf824cd7f,
+      objectReference: {fileID: 979477016989968597, guid: bc5d59e0a10493a4598baccf942be712,
         type: 3}
     - target: {fileID: 7833850870611872095, guid: 2ecdde3b1cf4ee544afc37219d7ea795,
         type: 3}
