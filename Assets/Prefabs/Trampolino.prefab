@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2142868493872437556}
   - component: {fileID: 5710634064522765586}
   - component: {fileID: 1199390664985231725}
-  - component: {fileID: 5415778617362415351}
+  - component: {fileID: 2344023295540500736}
   m_Layer: 0
   m_Name: Trampolino
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4487865919769657647}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -5, z: 0}
-  m_LocalScale: {x: 3, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 3.4, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -80,16 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &5415778617362415351
-SphereCollider:
+--- !u!70 &2344023295540500736
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4487865919769657647}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0000000064232517, y: -0.12213287}
+  m_Size: {x: 1.0000006, y: 1.1437042}
+  m_Direction: 1

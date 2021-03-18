@@ -82,7 +82,7 @@ public class Game : MonoBehaviour
 		{
 			//Debug.Log(r.GetPoint(distance));
 			Vector3 position = r.GetPoint(distance);
-			if (Input.GetMouseButtonDown(0))
+			if (Input.GetMouseButtonDown(0) && theRb.isKinematic == true)
 			{
 				direction = position - transform.position;
 				theRb.isKinematic = false;
