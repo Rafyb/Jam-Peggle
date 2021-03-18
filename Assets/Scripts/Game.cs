@@ -6,7 +6,7 @@ public class Game : MonoBehaviour
 {
     public static Game Instance;
     public ScoreBoard scoreBoard;
-    public TypeBrick active;
+    [HideInInspector] public TypeBrick active;
 
     private void Awake()
     {
