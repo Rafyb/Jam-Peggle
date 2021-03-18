@@ -11,7 +11,6 @@ public class Game : MonoBehaviour
 	public GameObject ballPrefabB;
 	public GameObject ballPrefabW;
 	public GameObject trampolino;
-	public Canvas MyCanvas;
 	GameObject ballPlayer;
 	Rigidbody2D theRb;
 
@@ -118,7 +117,7 @@ public class Game : MonoBehaviour
 
 	public void Fini(bool win)
     {
-
+		if(win) 
     }
 
 	void OnDestroyBall()
