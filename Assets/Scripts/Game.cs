@@ -35,6 +35,8 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		scoreBoard.addBall += AddBall;
+
         active = TypeBrick.White;
 
 		TypeBrick baseC = active;
@@ -43,14 +45,24 @@ public class Game : MonoBehaviour
         {
 			Switch();
 			GameObject go;
-			if (active == TypeBrick.White) go = Instantiate(ballPrefabW, new Vector3(listBall.position.x, listBall.position.y + i , 0f), Quaternion.identity);
-			else go = Instantiate(ballPrefabB, new Vector3(listBall.position.x, listBall.position.y + i , 0f), Quaternion.identity);
+			if (active == TypeBrick.White) go = Instantiate(ballPrefabW, new Vector3(listBall.position.x, listBall.position.y + i , listBall.position.z), Quaternion.identity);
+			else go = Instantiate(ballPrefabB, new Vector3(listBall.position.x, listBall.position.y + i , listBall.position.z), Quaternion.identity);
 			balls.Add(go);
         }
 
 		if (active != baseC) Switch();
 
 		OnDestroyBall();
+
+
+	}
+
+	public void AddBall()
+    {
+		GameObject go;
+		if (active == TypeBrick.White) go = Instantiate(ballPrefabW, new Vector3(listBall.position.x, listBall.position.y, 0f), Quaternion.identity);
+		else go = Instantiate(ballPrefabB, new Vector3(listBall.position.x, listBall.position.y, 0f), Quaternion.identity);
+		balls.Add(go);
 	}
 
 	void InstantiateBall()
@@ -84,6 +96,7 @@ public class Game : MonoBehaviour
 			Vector3 position = r.GetPoint(distance);
 			if (Input.GetMouseButtonDown(0) && theRb.isKinematic == true)
 			{
+				scoreBoard.ActiveBras(false);
 				direction = position - transform.position;
 				theRb.isKinematic = false;
 				theRb.AddForce((direction.normalized * force), ForceMode2D.Impulse);
@@ -103,6 +116,7 @@ public class Game : MonoBehaviour
 	{
 		if(balls.Count > 0)
         {
+			scoreBoard.ActiveBras(true);
 			InstantiateBall();
 			GameObject ball = balls[0];
 			balls.RemoveAt(0);
