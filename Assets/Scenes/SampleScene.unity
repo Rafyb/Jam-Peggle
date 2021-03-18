@@ -220,6 +220,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2940012005759526596, guid: c447b0b15357c464986b0b09ed0a9d40,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4856365573605962944, guid: c447b0b15357c464986b0b09ed0a9d40,
         type: 3}
       propertyPath: m_Name
@@ -405,6 +410,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4117357540585524222, guid: f5a554ac51673a64ebe5c9b83c2f486a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117357540585524222, guid: f5a554ac51673a64ebe5c9b83c2f486a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4117357540585524223, guid: f5a554ac51673a64ebe5c9b83c2f486a,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -429,6 +444,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0.16862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117357540585524223, guid: f5a554ac51673a64ebe5c9b83c2f486a,
+        type: 3}
+      propertyPath: orthographic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8043051120846887141, guid: f5a554ac51673a64ebe5c9b83c2f486a,
         type: 3}
@@ -664,3 +684,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
+  ball: {fileID: 979477016989968597, guid: d4465f8245a37294a9f9ff8048d872c1, type: 3}
+  force: 6
