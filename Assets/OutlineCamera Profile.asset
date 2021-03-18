@@ -31,11 +31,11 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   scale:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 2
   color:
-    overrideState: 0
-    value: {r: 1, g: 0.96815574, b: 0.8160377, a: 1}
+    overrideState: 1
+    value: {r: 0.9647059, g: 0.93333334, b: 0.8980392, a: 1}
   depthThreshold:
     overrideState: 0
     value: 1.5
