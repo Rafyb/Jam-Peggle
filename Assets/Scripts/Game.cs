@@ -12,6 +12,7 @@ public class Game : MonoBehaviour
 	public GameObject ballPrefabB;
 	public GameObject ballPrefabW;
 	public GameObject trampolino;
+	public GameObject leBRAS;
 	GameObject ballPlayer;
 	Rigidbody2D theRb;
 
@@ -23,6 +24,7 @@ public class Game : MonoBehaviour
 	Vector3 mousePosition;
 	Vector3 direction;
 	Vector3 trampoDir;
+
 
 	public int nbBall = 5;
 	private List<GameObject> balls = new List<GameObject>();
@@ -95,11 +97,11 @@ public class Game : MonoBehaviour
 		if(p.Raycast(r, out distance))
 		{
 			//Debug.Log(r.GetPoint(distance));
-			Vector3 position = r.GetPoint(distance);
+			mousePosition = r.GetPoint(distance);
 			if (Input.GetMouseButtonDown(0) && theRb.isKinematic == true)
 			{
 				scoreBoard.ActiveBras(false);
-				direction = position - transform.position;
+				direction = mousePosition - transform.position;
 				theRb.isKinematic = false;
 				theRb.AddForce((direction.normalized * force), ForceMode2D.Impulse);
 				//Debug.Log(direction);
@@ -107,6 +109,15 @@ public class Game : MonoBehaviour
 		}
 
 		Trampoline();
+
+		//TEST de rotation du bras mais pas concluant :(
+
+		/*Vector3 temp = transform.transform.eulerAngles;
+		temp.z = Mathf.Atan2(mousePosition.normalized.y, mousePosition.normalized.x);
+		leBRAS.transform.rotation = Quaternion.Euler(temp);*/
+
+		leBRAS.transform.Rotate(new Vector3(0,0,Mathf.Atan2(mousePosition.normalized.x, mousePosition.normalized.y)));
+		//Debug.Log(Mathf.Atan2(mousePosition.normalized.x, mousePosition.normalized.y));
 	}
 
     void OnDestroyBrick(TypeBrick type, EffectBrick effect)
