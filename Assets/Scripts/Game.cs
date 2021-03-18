@@ -9,13 +9,16 @@ public class Game : MonoBehaviour
     [HideInInspector] public TypeBrick active;
 
 	public GameObject ball;
+	public GameObject trampolino;
 	GameObject ballPlayer;
 	Rigidbody2D theRb;
 
 	public float force;
+	public float trampoSpeed;
 
 	Vector3 mousePosition;
 	Vector3 direction;
+	Vector3 trampoDir;
 
 	private void Awake()
     {
@@ -30,6 +33,7 @@ public class Game : MonoBehaviour
 		ballPlayer = Instantiate(ball, this.transform.position, Quaternion.identity);
 		theRb = ballPlayer.GetComponent<Rigidbody2D>();
 		theRb.isKinematic = true;
+		trampoDir = Vector3.left;
 	}
 
     // Update is called once per frame
@@ -46,6 +50,7 @@ public class Game : MonoBehaviour
 			theRb.AddForce(-(direction.normalized * force), ForceMode2D.Impulse);
 			Debug.Log(direction);
 		}
+		Trampoline();
 	}
 
     void OnDestroyBrick(EffectBrick effect)
@@ -64,4 +69,14 @@ public class Game : MonoBehaviour
             active = TypeBrick.White;
         }
     }
+
+	public void Trampoline()
+	{
+		trampolino.transform.position += trampoDir * trampoSpeed * Time.deltaTime;
+		if (trampolino.transform.position.x < -5.5f || trampolino.transform.position.x > 5.5f)
+		{
+			trampoDir = -trampoDir;
+		}
+		
+	}
 }
