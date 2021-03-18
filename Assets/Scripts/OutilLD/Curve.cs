@@ -9,7 +9,8 @@ public class Curve : MonoBehaviour
     private Vector2 gizmosPosition;
     private List<Vector2> positions;
 
-    public GameObject brickPrefab;
+    public GameObject brickPrefabWhite;
+    public GameObject brickPrefabBlack;
 
     [Header("Taux ( entre 0 et 1")]
     public float black = 0.5f;
@@ -45,14 +46,16 @@ public class Curve : MonoBehaviour
 
         foreach (Vector2 pos in positions)
         {
-            GameObject go = Instantiate(brickPrefab, new Vector3(pos.x, pos.y, 0f),Quaternion.identity);
+            
             float rnd = Random.Range(0f, 1f);
             if (rnd >= black) 
             {
+                GameObject go = Instantiate(brickPrefabBlack, new Vector3(pos.x, pos.y, 0f), Quaternion.identity);
                 go.GetComponent<Bricks>().type = TypeBrick.Black;
             }
             else 
-            { 
+            {
+                GameObject go = Instantiate(brickPrefabWhite, new Vector3(pos.x, pos.y, 0f), Quaternion.identity);
                 go.GetComponent<Bricks>().type = TypeBrick.White;
             }
         }
