@@ -19,11 +19,9 @@ public class Bricks : MonoBehaviour
     public TypeBrick type;
     public EffectBrick effect;
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnCollisionExit2D(Collision2D col)
     {
-        Debug.Log("Hit");
         if (Game.Instance.active != type && type != TypeBrick.Grey) return;
-
         Ball ball;
         if (col.gameObject.TryGetComponent<Ball>(out ball))
         {
