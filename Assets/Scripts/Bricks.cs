@@ -5,20 +5,29 @@ using UnityEngine;
 
 public enum TypeBrick
 {
-    Black, White, Orange
+    Black, White, Grey
+}
+
+public enum EffectBrick
+{
+    None, Bonus
 }
 
 
 public class Bricks : MonoBehaviour
 {
     public TypeBrick type;
+    public EffectBrick effect;
 
     private void OnCollisionEnter(Collision col)
     {
+        if (Game.Instance.active != type && type != TypeBrick.Grey) return;
+
         Ball ball;
         if (col.gameObject.TryGetComponent<Ball>(out ball))
         {
-            ball.onDestroyBrick?.Invoke(type);
+            ball.onDestroyBrick?.Invoke(effect);
+            Destroy();
         }
         //
     }
