@@ -340,7 +340,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 4856365572416452382}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 4856365572416452383}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -625,6 +625,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c447b0b15357c464986b0b09ed0a9d40, type: 3}
+--- !u!1 &4856365572416452383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1574765025, guid: c447b0b15357c464986b0b09ed0a9d40,
+    type: 3}
+  m_PrefabInstance: {fileID: 4856365572416452382}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6246066448431713040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1002,5 +1008,20 @@ PrefabInstance:
       propertyPath: listBall
       value: 
       objectReference: {fileID: 1416947716}
+    - target: {fileID: 9188047966511498581, guid: d79d94e760d746d42ae763cba7c8c464,
+        type: 3}
+      propertyPath: leBRAS
+      value: 
+      objectReference: {fileID: 4856365572416452383}
+    - target: {fileID: 9188047966511498581, guid: d79d94e760d746d42ae763cba7c8c464,
+        type: 3}
+      propertyPath: nbNoir
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188047966511498581, guid: d79d94e760d746d42ae763cba7c8c464,
+        type: 3}
+      propertyPath: nbBlanc
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d79d94e760d746d42ae763cba7c8c464, type: 3}
