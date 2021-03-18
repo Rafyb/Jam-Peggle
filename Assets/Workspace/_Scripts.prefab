@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5480598996682645193}
+  - component: {fileID: 9188047966511498581}
   m_Layer: 0
   m_Name: _Scripts
   m_TagString: Untagged
@@ -30,3 +31,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9188047966511498581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6494503432411733753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14078ce1e24377e48af44e19684dbe94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 0
+  ballPrefabB: {fileID: 979477016989968597, guid: d4465f8245a37294a9f9ff8048d872c1,
+    type: 3}
+  ballPrefabW: {fileID: 979477016989968597, guid: 26deb199302484842a44de4da7a84533,
+    type: 3}
+  trampolino: {fileID: 0}
+  MyCanvas: {fileID: 0}
+  force: 6
+  trampoSpeed: 4
+  nbBall: 6
+  listBall: {fileID: 0}
