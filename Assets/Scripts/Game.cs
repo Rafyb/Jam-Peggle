@@ -12,6 +12,7 @@ public class Game : MonoBehaviour
 	public GameObject ballPrefabB;
 	public GameObject ballPrefabW;
 	public GameObject trampolino;
+	public GameObject leBRAS;
 	GameObject ballPlayer;
 	Rigidbody2D theRb;
 
@@ -109,7 +110,14 @@ public class Game : MonoBehaviour
 
 		Trampoline();
 
-		//bras.transform.Rotate(new Vector3(0,0,Mathf.Atan2(mousePosition.y, mousePosition.x)));
+		//TEST de rotation du bras mais pas concluant :(
+
+		/*Vector3 temp = transform.transform.eulerAngles;
+		temp.z = Mathf.Atan2(mousePosition.normalized.y, mousePosition.normalized.x);
+		leBRAS.transform.rotation = Quaternion.Euler(temp);*/
+
+		leBRAS.transform.Rotate(new Vector3(0,0,Mathf.Atan2(mousePosition.normalized.x, mousePosition.normalized.y)));
+		//Debug.Log(Mathf.Atan2(mousePosition.normalized.x, mousePosition.normalized.y));
 	}
 
     void OnDestroyBrick(TypeBrick type, EffectBrick effect)
