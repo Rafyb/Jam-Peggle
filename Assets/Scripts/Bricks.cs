@@ -20,7 +20,7 @@ public class Bricks : MonoBehaviour
         {
             ball.onDestroyBrick?.Invoke(type);
         }
-        
+        //
     }
     private void Destroy()
     {
