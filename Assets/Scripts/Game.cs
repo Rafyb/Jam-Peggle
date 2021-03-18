@@ -41,9 +41,10 @@ public class Game : MonoBehaviour
 		if (Input.GetMouseButtonDown(0))
 		{
 			direction = transform.position - mousePosition;
-			Debug.Log(direction);
+			direction.z = 0.0f;
 			theRb.isKinematic = false;
-			theRb.AddForce(direction * Time.deltaTime, ForceMode2D.Impulse);
+			theRb.AddForce(-(direction.normalized * force), ForceMode2D.Impulse);
+			Debug.Log(direction);
 		}
 	}
 
