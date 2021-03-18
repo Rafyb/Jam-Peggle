@@ -21,7 +21,7 @@ public class Bricks : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        if (Game.Instance.active != type) return;
+        if (Game.Instance.active != type && type != TypeBrick.Grey) return;
 
         Ball ball;
         if (col.gameObject.TryGetComponent<Ball>(out ball))
