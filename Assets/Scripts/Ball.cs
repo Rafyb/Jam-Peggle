@@ -1,11 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+	public Action<TypeBrick> onDestroyBrick;
+
+	// Start is called before the first frame update
+	void Start()
     {
         
     }
