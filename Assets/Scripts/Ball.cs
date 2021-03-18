@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-	public Action<EffectBrick> onDestroyBrick;
+	public Action<TypeBrick,EffectBrick> onDestroyBrick;
     public Action onDestroyBall;
 
     // Start is called before the first frame update

@@ -17,6 +17,8 @@ public class Game : MonoBehaviour
 
 	public float force;
 	public float trampoSpeed;
+	[Range(0,6)]
+	public float trampoRange;
 
 	Vector3 mousePosition;
 	Vector3 direction;
@@ -25,6 +27,9 @@ public class Game : MonoBehaviour
 	public int nbBall = 5;
 	private List<GameObject> balls = new List<GameObject>();
 	public Transform listBall;
+
+	public int nbNoir = 1;
+	public int nbBlanc = 1;
 
 	private void Awake()
     {
@@ -35,6 +40,9 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		scoreBoard.addBall += AddBall;
+		scoreBoard.UpdateUI();
+
         active = TypeBrick.White;
 
 		TypeBrick baseC = active;
@@ -43,14 +51,24 @@ public class Game : MonoBehaviour
         {
 			Switch();
 			GameObject go;
-			if (active == TypeBrick.White) go = Instantiate(ballPrefabW, new Vector3(listBall.position.x, listBall.position.y + i , 0f), Quaternion.identity);
-			else go = Instantiate(ballPrefabB, new Vector3(listBall.position.x, listBall.position.y + i , 0f), Quaternion.identity);
+			if (active == TypeBrick.White) go = Instantiate(ballPrefabW, new Vector3(listBall.position.x, listBall.position.y + i , listBall.position.z), Quaternion.identity);
+			else go = Instantiate(ballPrefabB, new Vector3(listBall.position.x, listBall.position.y + i , listBall.position.z), Quaternion.identity);
 			balls.Add(go);
         }
 
 		if (active != baseC) Switch();
 
 		OnDestroyBall();
+
+
+	}
+
+	public void AddBall()
+    {
+		GameObject go;
+		if (active == TypeBrick.White) go = Instantiate(ballPrefabW, new Vector3(listBall.position.x, listBall.position.y, 0f), Quaternion.identity);
+		else go = Instantiate(ballPrefabB, new Vector3(listBall.position.x, listBall.position.y, 0f), Quaternion.identity);
+		balls.Add(go);
 	}
 
 	void InstantiateBall()
@@ -71,10 +89,6 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		/*var mousePos = Input.mousePosition;
-		mousePos.z = Camera.main.transform.position.z;
-		mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, -mousePos.y, mousePos.z));*/
-
 		Plane p = new Plane(new Vector3(0, 0, 1), Vector3.zero);
 		Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
 		float distance;
@@ -82,8 +96,9 @@ public class Game : MonoBehaviour
 		{
 			//Debug.Log(r.GetPoint(distance));
 			Vector3 position = r.GetPoint(distance);
-			if (Input.GetMouseButtonDown(0))
+			if (Input.GetMouseButtonDown(0) && theRb.isKinematic == true)
 			{
+				scoreBoard.ActiveBras(false);
 				direction = position - transform.position;
 				theRb.isKinematic = false;
 				theRb.AddForce((direction.normalized * force), ForceMode2D.Impulse);
@@ -94,7 +109,14 @@ public class Game : MonoBehaviour
 		Trampoline();
 	}
 
-    void OnDestroyBrick(EffectBrick effect)
+    void OnDestroyBrick(TypeBrick type, EffectBrick effect)
+    {
+		if (type == TypeBrick.White) nbBlanc--;
+		if (type == TypeBrick.Black) nbNoir--;
+		if (nbNoir == 0 || nbBlanc == 0) Fini(true);
+	}
+
+	public void Fini(bool win)
     {
 
     }
@@ -103,13 +125,24 @@ public class Game : MonoBehaviour
 	{
 		if(balls.Count > 0)
         {
+			scoreBoard.ActiveBras(true);
 			InstantiateBall();
 			GameObject ball = balls[0];
 			balls.RemoveAt(0);
 			ball.GetComponent<Ball>().Destroy();
+		} else
+        {
+			if (nbNoir == 0 || nbBlanc == 0) Fini(true);
+			else Fini(false);
 		}
 		
 	}
+
+	public void Boing()
+    {
+		Debug.Log("boing");
+		scoreBoard.AddJauge3(1);
+    }
 
 	public void Switch()
     {
@@ -126,7 +159,7 @@ public class Game : MonoBehaviour
 	public void Trampoline()
 	{
 		trampolino.transform.position += trampoDir * trampoSpeed * Time.deltaTime;
-		if (trampolino.transform.position.x < -5.5f || trampolino.transform.position.x > 5.5f)
+		if (trampolino.transform.position.x < -trampoRange || trampolino.transform.position.x > trampoRange)
 		{
 			trampoDir = -trampoDir;
 		}

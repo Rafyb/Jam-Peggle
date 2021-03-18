@@ -25,7 +25,7 @@ public class Bricks : MonoBehaviour
         Ball ball;
         if (col.gameObject.TryGetComponent<Ball>(out ball))
         {
-            ball.onDestroyBrick?.Invoke(effect);
+            ball.onDestroyBrick?.Invoke(type,effect);
             Destroy();
         }
         //

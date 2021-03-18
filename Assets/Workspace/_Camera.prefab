@@ -38,6 +38,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8043051120846887142}
     m_Modifications:
+    - target: {fileID: 8285497336897121976, guid: f4e295ea59ac1ab429d960dd425b373c,
+        type: 3}
+      propertyPath: volumeLayer.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285497336897121976, guid: f4e295ea59ac1ab429d960dd425b373c,
+        type: 3}
+      propertyPath: m_ShowCustomSorter
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8285497336897121981, guid: f4e295ea59ac1ab429d960dd425b373c,
         type: 3}
       propertyPath: m_Name
@@ -51,12 +61,12 @@ PrefabInstance:
     - target: {fileID: 8285497336897121982, guid: f4e295ea59ac1ab429d960dd425b373c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8285497336897121982, guid: f4e295ea59ac1ab429d960dd425b373c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.7
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8285497336897121982, guid: f4e295ea59ac1ab429d960dd425b373c,
         type: 3}
