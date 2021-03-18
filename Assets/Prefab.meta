@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Materials.meta
-guid: 559b1de7b61a9724584514a81d5ac73b
-=======
-guid: b5d241f3d9baf414dac632c5b36e3715
->>>>>>> 86d7dd2dc5b915a1a3f4ea4d9c2db7679149d0f8:Assets/Prefab.meta
+guid: 2f4b66ac68e0a0647a0550b5467f877a
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
