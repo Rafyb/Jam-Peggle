@@ -101,8 +101,8 @@ MonoBehaviour:
   trampolino: {fileID: 0}
   MyCanvas: {fileID: 0}
   force: 6
-  trampoSpeed: 4
-  trampoRange: 0
+  trampoSpeed: 3
+  trampoRange: 3
   nbBall: 6
   listBall: {fileID: 0}
   nbNoir: 1
