@@ -10,6 +10,7 @@ public class Game : MonoBehaviour
 
 	public GameObject ball;
 	public GameObject trampolino;
+	public Canvas MyCanvas;
 	GameObject ballPlayer;
 	Rigidbody2D theRb;
 
@@ -39,17 +40,26 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		/*var mousePos = Input.mousePosition;
+		mousePos.z = Camera.main.transform.position.z;
+		mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, -mousePos.y, mousePos.z));*/
 
-
-		if (Input.GetMouseButtonDown(0))
+		Plane p = new Plane(new Vector3(0, 0, 1), Vector3.zero);
+		Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+		float distance;
+		if(p.Raycast(r, out distance))
 		{
-			direction = transform.position - mousePosition;
-			direction.z = 0.0f;
-			theRb.isKinematic = false;
-			theRb.AddForce(-(direction.normalized * force), ForceMode2D.Impulse);
-			Debug.Log(direction);
+			//Debug.Log(r.GetPoint(distance));
+			Vector3 position = r.GetPoint(distance);
+			if (Input.GetMouseButtonDown(0))
+			{
+				direction = position - transform.position;
+				theRb.isKinematic = false;
+				theRb.AddForce((direction.normalized * force), ForceMode2D.Impulse);
+				//Debug.Log(direction);
+			}
 		}
+
 		Trampoline();
 	}
 
