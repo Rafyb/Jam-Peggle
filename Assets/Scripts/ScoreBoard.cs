@@ -8,7 +8,7 @@ public class ScoreBoard : MonoBehaviour
 {
     public int score = 0;
 
-    public int jaugeNewBall = 0;
+    public float jaugeNewBall = 0;
     public int newBallNeed = 30;
 
     public Action addBall;
@@ -31,6 +31,7 @@ public class ScoreBoard : MonoBehaviour
     public void UpdateUI()
     {
         jauge3.fillAmount = jaugeNewBall / newBallNeed;
+        Debug.Log(jaugeNewBall / newBallNeed);
     }
 
     public void ActiveBras(bool b)

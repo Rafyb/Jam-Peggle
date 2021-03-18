@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   jaugeNewBall: 0
-  newBallNeed: 30
+  newBallNeed: 10
   jauge3: {fileID: 0}
   bras: {fileID: 0}
 --- !u!1 &6494503432411733753
@@ -102,5 +102,8 @@ MonoBehaviour:
   MyCanvas: {fileID: 0}
   force: 6
   trampoSpeed: 4
+  trampoRange: 0
   nbBall: 6
   listBall: {fileID: 0}
+  nbNoir: 1
+  nbBlanc: 1

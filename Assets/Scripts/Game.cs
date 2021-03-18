@@ -28,6 +28,9 @@ public class Game : MonoBehaviour
 	private List<GameObject> balls = new List<GameObject>();
 	public Transform listBall;
 
+	public int nbNoir = 1;
+	public int nbBlanc = 1;
+
 	private void Awake()
     {
         Instance = this;
@@ -38,6 +41,7 @@ public class Game : MonoBehaviour
     void Start()
     {
 		scoreBoard.addBall += AddBall;
+		scoreBoard.UpdateUI();
 
         active = TypeBrick.White;
 
@@ -105,7 +109,14 @@ public class Game : MonoBehaviour
 		Trampoline();
 	}
 
-    void OnDestroyBrick(EffectBrick effect)
+    void OnDestroyBrick(TypeBrick type, EffectBrick effect)
+    {
+		if (type == TypeBrick.White) nbBlanc--;
+		if (type == TypeBrick.Black) nbNoir--;
+		if (nbNoir == 0 || nbBlanc == 0) Fini(true);
+	}
+
+	public void Fini(bool win)
     {
 
     }
@@ -119,9 +130,19 @@ public class Game : MonoBehaviour
 			GameObject ball = balls[0];
 			balls.RemoveAt(0);
 			ball.GetComponent<Ball>().Destroy();
+		} else
+        {
+			if (nbNoir == 0 || nbBlanc == 0) Fini(true);
+			else Fini(false);
 		}
 		
 	}
+
+	public void Boing()
+    {
+		Debug.Log("boing");
+		scoreBoard.AddJauge3(1);
+    }
 
 	public void Switch()
     {
